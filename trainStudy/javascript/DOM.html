@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>DOM</title>
+	<style type="text/css">
+		body {
+			font-family: 'Microsoft Yahei';
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.myUl {
+			color: #f00;
+		}
+
+		.divClick {
+			width: 300px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			background-image: linear-gradient(to bottom, #d1eeee, #bbb);
+			cursor: pointer;
+		}
+
+		.show {
+			position: fixed;
+			border: 1px solid #ccc;
+			width: 60px; 
+			height: 100px; 
+			background: linear-gradient(#666 50%, #666 0, #abc 50%) repeat; 
+			background-size: auto 40px;
+		}
+
+	</style>
+</head>
+<body>
+	<ul id="myUl" class="myUl" title="ul" alt="ul">
+		<li name="myLi"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+	</ul>
+
+	<div class="divClick">
+		检测事件发生时，是否同时按下了键盘
+	</div>
+
+	<textarea class="textarea"></textarea>
+
+	<script type="text/javascript">
+		var ul = document.querySelector('ul');
+
+		/* 查询出符合条件的项 */
+		var lis = [].filter.call(ul.childNodes, function(item) {
+			if (item.nodeName.toLowerCase() == 'li') {
+				return true;
+			}
+		});
+
+		/**
+		* @func convertToArray
+		* @desc 将childNodes转换为数组
+		* @param {伪数组} nodes - childNodes
+		*/
+		function convertToArray(nodes) {
+			var array = [];
+
+			try {
+				array = [].slice.call(nodes, 0);
+			} catch(ex) {
+				for (var i = 0; i < nodes.length; i++) {
+					array.push(nodes[i]);
+				}
+			}
+
+			return array;
+		}
+
+		/* 获取当前元素的子元素,文本也会被算进去 动态更新 arguments nomalize() */
+		console.log(lis, convertToArray(ul.childNodes), ul.cloneNode(true));  /* cloneNode(bool) 是否深复制 */ 
+		console.log(ul.parentNode, ul.previousSibling, ul.nextSibling, ul.firstChild, ul.lastChild, ul.hasChildNodes());
+
+		console.log(document.firstChild,document.childNodes[0], document.documentElement, document.body, document.title);
+		console.log('url:' + document.URL, '域名(domain):' + document.domain, '链接到当前页面的页面(referrer):' + document.referrer);
+		console.log(document.getElementsByTagName('li').namedItem('myLi'), ul.tagName == ul.nodeName);
+
+		/* 属性值 */
+		console.log(ul.attributes, ul.attributes.getNamedItem('id'), ul.attributes['class']);
+
+		var ulComp = document.defaultView.getComputedStyle(ul, null); /* 获取到完成的样式 IE currentStyle */
+
+		console.log(ulComp.listStyle, ul.offsetWidth, ul.offsetHeight, ul.offsetTop, ul.offsetLeft); /* 相对于父级 */
+
+		/**
+		* @func eventBind
+		* @desc 兼容浏览器的事件绑定
+		* @param {element} element - 绑定事件的元素
+		* @param {String} type - 事件类型
+		* @param {Function} func - 绑定事件
+		*/
+		function eventBind(element, type, func) {
+			if (element.addEventListener) {
+				element.addEventListener(type, func);
+			} else if (element.attachEvent) {
+				element.attachEvent('on' + type, func);
+			} else {
+				element.on[type] = func;
+			}
+		}
+
+		/**
+		* @func eventRemove
+		* @desc 兼容浏览器的事件解除绑定
+		* @param {element} element - 绑定事件的元素
+		* @param {String} type - 事件类型
+		* @param {Function} func - 绑定的事件
+		*/
+		function eventRemove(element, type, func) {
+			if (element.removeEventListener) {
+				element.removeEventListener(type, func, false);
+			} else if (element.dettach) {
+				element.detachEvent('on' + type, func);
+			} else {
+				element['on' + type] = null;
+			}
+		}
+
+		function test() {
+			alert('123');
+		}
+
+		eventBind(ul, 'click', test);
+		eventRemove(ul, 'click', test);
+
+		eventBind(document.querySelector('.divClick'), 'click', function(event) {
+			// event = event || document.event;
+
+			if (event.shiftKey) {
+				console.log('enter the shift');
+			}
+
+			if (event.ctrlKey) {
+				console.log('enter the ctrl');
+			}
+
+			if (event.altKey) {
+				console.log('enter the alt');
+			}
+
+			if (event.metaKey) {
+				console.log('enter the meta');
+			}
+		});
+
+		/* 隐藏默认菜单 显示自定义菜单 */
+		eventBind(document.querySelector('.divClick'), 'contextmenu', function(event) {
+			/* 按下了鼠标右键 */
+			// if (event.button == 2) {
+				event.preventDefault();
+
+				var div = document.createElement('div');
+				div.className = 'show';
+				div.style.left = event.clientX + 'px';
+				div.style.top = event.clientY + 'px';
+
+				if (document.querySelector('.show')) {
+					document.body.removeChild(document.querySelector('.show'));
+				}
+				
+				document.body.appendChild(div);
+			// }
+		});
+
+		eventBind(document.querySelector('.textarea'), 'textInput', function(event) {
+			console.log(event.data);
+		});
+
+		eventBind(window, 'beforeunload', function(event) {
+			event.returnValue = '确定离开吗?';
+		});
+	</script>
+</body>
+</html>

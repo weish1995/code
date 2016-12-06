@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.testing {
+  width: 300px;
+  height: 100px;
+  background-color: #ff0;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+ul {
+  list-style: none;
+}
+ul > li {
+  float: left;
+  list-style: none;
+  padding: 5px 10px;
+  font-family: 'Microsoft Yahei';
+  font-size: 14px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>html5</title>
+	<style type="text/css">
+		.drop {
+			width: 100px;
+			height: 100px;
+		}
+
+		.drop.drop-source {
+			background-color: #ff0;
+		}
+
+		.drop.drop-target {
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="drop drop-source"></div>
+	<div class="drop drop-target"></div>
+
+	<script type="text/javascript">
+		var dropTarget = document.querySelector('.drop-target');
+
+		dropTarget.ondragover = function(e) {
+			e.preventDefault();
+		}
+
+		dropTarget.ondragenter = function(e) {
+			e.preventDefault();
+		}
+
+		dropTarget.ondrop = function(e) {
+			e.preventDefault();
+		}
+	</script>
+</body>
+</html>

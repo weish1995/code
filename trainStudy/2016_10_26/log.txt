@@ -1,0 +1,22 @@
+.babelrc {
+	'presets' : [],
+	'plugins' : []
+}
+
+babel-preset-es2015
+babel-preset-react
+babel-preset-stage-2
+
+babel-cli /* 命令行转码 */
+babel test.js -o t_test.js
+babel dir -d new_dir
+babel-node
+babel-node test.js
+
+babel-node /* 类似与node */
+
+babel-register /* 改写require 调用时 自动转码 */
+babel-core /* 需要调用Babel API */
+
+npm install --save babel-polyfill
+require('babel-polyfill');

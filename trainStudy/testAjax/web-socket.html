@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Web Socket</title>
+</head>
+<body>
+	<button class="btn-click">点击使用WebSocket</button>
+
+	<script type="text/javascript">
+		var btnClick = document.querySelector('.btn-click');
+
+		btnClick.onclick = function() {
+			var socket = new WebSocket('ws://localhost/test.php');
+
+			socket.onmessage = function(event) {
+				console.log(event.data);
+			};
+
+			socket.onerror = function() {
+				console.log('connection error.');
+			};
+		};
+	</script>
+</body>
+</html>

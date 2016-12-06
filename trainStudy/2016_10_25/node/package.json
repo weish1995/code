@@ -1,0 +1,14 @@
+{
+  "name": "runoob",
+  "version": "1.0.0",
+  "description": "测试���模块",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "weishuangjian",
+  "license": "ISC"
+}

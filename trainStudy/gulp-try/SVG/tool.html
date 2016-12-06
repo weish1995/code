@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="frm">
+        <input type="number" width="100" name="input-x" value="0" onchange="cha()">
+        <input type="number" width="100" name="input-y" value="0" onchange="cha()">
+
+        <input type="number" width="100" value="800" name="input-a" onchange="cha()">
+        <input type="number" width="100" value="800" name="input-b" onchange="cha()">
+        <input type="number" width="100" value="0" name="input-c" onchange="cha()">
+        <input type="number" width="100" value="0" name="input-d" onchange="cha()">
+    </form>
+    <svg width="1000" height="500" style="margin-top: 30px">
+        <path id="path" d="M 285 115, A 800 800 0 0 0 0 0" stroke-dasharray="3" stroke="#595959" fill="none"></path>
+    </svg>
+
+    <script>
+        var frm = document.forms['frm'],
+            x = frm['input-x'],
+            y = frm['input-y'],
+            a = frm['input-a'],
+            b = frm['input-b'],
+            c = frm['input-c'],
+            d = frm['input-d'],
+            path = document.getElementById('path'),
+            str = '';
+
+        function cha() {
+            str = 'M 285 115, A ' + a.value + ' ' + b.value + ' ' + c.value + ' 0 ' + d.value + ' ' + x.value + ' ' + y.value;
+            path.setAttribute('d', str);
+        }
+    </script>
+</body>
+</html>

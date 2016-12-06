@@ -1,0 +1,30 @@
+@import '../../page/variables.less';
+
+.@{prefix-cls}-header {
+    padding: 0 @pageSpacing;
+    height: @headerHeight;
+    line-height: @headerHeight;
+    background-color: @headerBackgroundColor;
+
+    .logo-img {
+        margin-top: 36px;
+        width: @logoImgWidth;
+        height: @logoImgHeight;
+    }
+
+    .header-input {
+        margin-top: 22px;
+        padding-left: 84px;
+        width: 765px;
+        max-width: 70%;
+        height: 86px;
+        border: none;
+        border-radius: 43px;
+        font-size: 54px;
+        color: @headerInputColor;
+    }
+
+    &::after {
+        height: 0;
+    }
+}

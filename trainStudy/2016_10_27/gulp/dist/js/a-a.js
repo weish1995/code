@@ -1,0 +1,1 @@
+function demo(n){alert("----------\r\n"+n+"\r\n----------")}function sum(n,r){return n+r}demo("hi"),sum(1,2);

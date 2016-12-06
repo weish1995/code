@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>test</title>
+</head>
+<body>
+<svg width="570" height="230">
+    <path id="top-left-path" class="run-path" d="M 0 0, A 400 1000 -30 0 0 285 110" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <path id="bottom-left-path" class="run-path" d="M 0 230, A 400 1000 30 0 1 285 120" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <path id="top-right-path" class="run-path" d="M 570 0, A 400 1000 30 0 1 285 110" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <path id="bottom-right-path" class="run-path" d="M 570 230, A 400 1000 -30 0 0 285 120" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <path id="top-center-path" class="run-path" d="M 275 0, L 275 115" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <path id="bottom-center-path" class="run-path" d="M 275 230, L 275 115" stroke-dasharray="3" stroke="#ccc" fill="none"></path>
+    <defs>
+        <g id="run-icon">
+            <circle cx="0" cy="0" r="4" fill="#fee760"></circle>
+            <circle cx="0" cy="0" r="2" fill="#fff"></circle>
+            <polygon points="0 -4 -4 0 -5 -6 -4 -6" fill="#fee760" fill-opacity=".9"></polygon>
+        </g>
+    </defs>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-6s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-left-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-3s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-left-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-left-path"></mpath>
+        </animateMotion>
+    </use>
+
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-6s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-right-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-3s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-right-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-right-path"></mpath>
+        </animateMotion>
+    </use>
+
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-7s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-left-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-4s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-left-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-1s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-left-path"></mpath>
+        </animateMotion>
+    </use>
+
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-7s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-right-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-4s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-right-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="9s"
+                rotate="auto"
+                begin="-1s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-right-path"></mpath>
+        </animateMotion>
+    </use>
+
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="4s"
+                rotate="auto"
+                begin="-2s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-center-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="4s"
+                rotate="auto"
+                repeatCount="indefinite">
+            <mpath xlink:href="#top-center-path"></mpath>
+        </animateMotion>
+    </use>
+
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="4s"
+                rotate="auto"
+                begin="-2s"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-center-path"></mpath>
+        </animateMotion>
+    </use>
+    <use xlink:href="#run-icon" transform="rotate(-45)">
+        <animateMotion
+                dur="4s"
+                rotate="auto"
+                repeatCount="indefinite">
+            <mpath xlink:href="#bottom-center-path"></mpath>
+        </animateMotion>
+    </use>
+</svg>
+<div style="width: 90px; height: 90px; background-color: #f00; position: absolute; left: 285px; top: 115px; margin-left: -45px;margin-top: -45px"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    var $paths = $('.run-path'),
+            num = 0;
+
+    setInterval(function() {
+        $paths.attr('stroke-dashoffset', num);
+        num = num < -100 ? 0 : --num;
+    }, 25);
+</script>
+</body>
+</html>

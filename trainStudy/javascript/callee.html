@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		* @func test
+		* @desc 编写递归时，使用arguments.callee替代函数
+		*/
+		function test() {
+			console.log(arguments.callee);
+		}
+
+		function arrays() {
+			var array = new Array();
+
+			for (var i = 0; i < 4; i++) {
+				array[i] = function(i) {
+					return i;
+				}(i);
+			}
+
+			return array;
+		}
+		console.log(arrays());
+
+		for (var elem of ['a', 'b'].keys()) {
+	        console.log(elem);
+	    }
+
+	    for (var [index,elem] of ['a', 'b'].entries()) {
+	        console.log(elem);
+	    }
+
+	    function sum(a, b) {
+	    	return a + b;
+	    }
+	</script>
+</body>
+</html>

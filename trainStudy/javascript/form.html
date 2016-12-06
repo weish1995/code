@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title></title>
+</head>
+<body>
+	<form action="" method="post" name="frm">
+		<label for="name">姓名：</label>
+		<input type="text" name="name" id="name" value="韦双健">
+		<label for="age">年龄：</label>
+		<input type="text" name="age" id="age">
+		<input type="radio" name="sex"><label for="sex" value="男">男</label>
+		<input type="radio" name="sex"><label for="sex" value="女">女</label>
+		<label for="tele"></label>
+		<input type="text" name="tele" id="tele" pattern="\d{11}">
+
+		<input type="submit" name="" value="submit">
+		<select name="select">
+			<option value="math">数学</option>
+			<option value="PE">体育</option>
+			<option value="English">英语</option>
+		</select>
+		<iframe name="iframe" src="iframe.html" style="width: 400px; height: 150px;"></iframe>
+		<div style="width: 400px; height: 150px; border: 1px solid #ccc;" contenteditable></div>
+	</form>
+
+	<script type="text/javascript">
+		var frm = document.forms['frm'],
+			elems = frm.elements;/* 获取表单里的所有控件 */
+		
+		console.log(elems['sex']);
+
+		frm['name'].onfocus = function() {
+			/* 选中文本框内容 */
+			this.select();
+		};
+
+		frm.onclick = function(e) {
+			e = e || event || window.event;
+			var target = e.target || e.srcElement;
+
+			if (target.type == 'text') {
+				target.select();
+			}
+		};
+
+		/* 屏蔽部分字符 ? */
+		frm['age'].onkeypress = function(e) {
+			e = e || event || window.event;
+
+			var charCode = e.relatedTarget;
+
+			if (!/\d/.test(String.fromCharCode(charCode))) {
+				e.preventDefault();
+			}
+		};
+
+		frm.select.onchange = function() {
+			console.log(this.selectedIndex, this.value, this.options[this.selectedIndex]);
+		};
+
+		/* 添加选项 */
+		var newOption = new Option('Option Text', 'Option value');
+		frm.select.add(newOption);
+
+		/* 设置富文本框的属性 */
+		// window.onload = function() {
+		// 	frames['iframe'].document.designMode = 'on';
+		// };
+	</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+@import '../variables.less';
+
+.content-detail {
+    margin: 0 auto;
+    max-width: @pageMaxWidth;
+}
+
+.@{prefix-cls}-detail-header {
+    background-color: @headerBackgroundColor;
+    background-size: cover;
+
+    .button {
+        color: @textColor;
+        font-size: 48px;
+    }
+    a span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .icon-left{
+        margin-right: 25px;
+        width: 24px;
+        height: 48px;
+        line-height: 44px;
+        font-size: 38px;
+    }
+
+    .pull-right i {
+        display: inline-block;
+
+        margin: 25px 15px;
+        width: 88px;
+        height: 88px;
+
+        background-size: cover;
+    }
+
+    .icon-list {
+        background-image: url("icon1.png");
+    }
+
+    .icon-home {
+        background-image: url("icon2.png");
+        &::before {
+            content: normal;
+        }
+    }
+
+    h1 {
+        font-size: 48px;
+        color: @textColor;
+    }
+
+    &::after {
+        height: 0;
+    }
+}
+
+.@{prefix-cls}-detail-top {
+
+    img{
+        margin-bottom: -20px;
+        width: 100%;
+    }
+
+    .block {
+        border-bottom: 5px solid @lin_color;
+        padding-left: @pageSpacing;
+        padding-right: @pageSpacing;
+        width: 100%;
+        height: 151px;
+        line-height: 153px;
+        align-items: center;
+
+        font-size: @fontSize;
+        background-color: @textColor;
+
+        &:nth-last-of-type(1) {
+            display: flex;
+        }
+
+        .num {
+            color: @headerBackgroundColor;
+        }
+
+        .button-consult {
+            float: right;
+
+            margin-top: 25px;
+            border: 5px solid @headerBackgroundColor;
+            border-radius: 6px;
+            width: 295px;
+            height: 100px;
+
+            text-align: center;
+            line-height: 100px;
+            color: @headerBackgroundColor;
+        }
+
+        .tap {
+            flex: 1;
+            border-right: 5px solid @lin_color;
+            height: 86px;
+            color: @headerBackgroundColor;
+            line-height: 86px;
+
+            @media (max-width: 320px) {
+                font-size: 25px;
+            }
+
+            .icon-follow{
+                display: inline-block;
+                width: 50px;
+                height: 48px;
+                background-image: url(icon3.png);
+                background-size: cover;
+                margin-right: 21px;
+                margin-bottom: 18px;
+                vertical-align: middle;
+                @media (max-width: 320px){
+                    margin-bottom: 10px;
+                }
+            }
+
+        }
+
+        .tap:last-child {
+            display: flex;
+            justify-content: flex-end;
+            border-right: none;
+            margin-right: 0;
+        }
+
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible">
+	<title>
+		《css揭秘》-- 动画
+	</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+<body>
+ 	<div class="ball"></div>
+ 	<div class="flicker">
+ 		测试闪烁效果
+ 	</div>
+ 	<div class="bg">
+ 		<div class="typing">
+	 		Student.prototype = Object.create(Person.prototype);
+	 	</div>
+ 	</div>
+ 	<div class="img-show"></div>
+ 	<div class="cricle">
+ 		<div class="avatar">
+ 			<img src="bg.png">
+ 		</div>
+ 	</div>
+
+ 	<script type="text/javascript">
+ 		document.querySelectorAll('.typing').forEach(function(item) {
+ 			var len = item.textContent.trim().length;
+
+ 			item.style.width = len + 'ch';
+ 			item.style.animationTimingFunction = 'steps(' + len + '), steps(1)';
+ 			item.style.animationDuration = (len / 5) + 's, 1s';
+ 		});
+ 	</script>
+</body>
+</html>

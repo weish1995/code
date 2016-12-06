@@ -1,0 +1,93 @@
+@import '../../page/variables.less';
+
+.@{prefix-cls}-message {
+    position: absolute;
+    padding: 0 @pageSpacing;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: @homeMessageBackColor;
+    z-index: 10000;
+
+    .message-content {
+        position: relative;
+        padding: 0 @pageSpacing @pageSpacing @pageSpacing;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #fff;
+        border-bottom: 3.4px solid @homeMessageBorderColor;
+
+        .message-title {
+            display: inline-block;
+            width: 100%;
+            height: 202px;
+            line-height: 202px;
+            font-size: 40px;
+            text-align: center;
+            color: @btnColor;
+        }
+
+        .operate {
+            display: flex;
+            justify-content: space-around;
+
+            .button {
+                margin-bottom: 80px;
+                width: 49%;
+                height: 150px;
+                background-color: @btnColor;
+                border-radius: 0;
+                color: #fff;
+                font-size: 42px;
+                border: 3.4px solid transparent;
+                text-align: center;
+            }
+
+            .cancel {
+                background-color: #fff;
+                border: 3.4px solid @btnColor;
+                color: rgb(234, 59, 64);
+            }
+        }
+
+        .message-txtarea {
+            height: auto;
+            line-height: 1;
+
+            textarea {
+                margin: 0;
+                padding: 0 0 0 69px;
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 39px;
+                line-height: 150px;
+                resize: none;
+            }
+
+            .tips {
+                padding: 0 @pageSpacing;
+                display: none;
+                width: 100%;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    height: 120px;
+                    font-size: 39px;
+                    line-height: 120px;
+                    border-bottom: 3.4px solid rgb(212, 212, 212);
+                }
+
+                p:last-child {
+                    border: none;
+                }
+            }
+        }
+
+        .message-txtarea-blur {
+            border-bottom: 3.4px solid rgb(212, 212, 212) !important;
+        }
+
+    }
+}

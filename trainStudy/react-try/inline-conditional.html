@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌入表达式在JSX里面</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+        function Mailbox(props) {
+            const unreadMessages = props.unreadMessages,
+                    isLoggedIn = props.isLoggedIn;
+
+            return (
+                <div>
+                    <h1>Hello</h1>
+                    {
+                        unreadMessages.length > 0 &&
+                            <h2>
+                                You have {unreadMessages.length} unreadMessages.
+                            </h2>
+                    }
+                    <p>The user is {isLoggedIn ? 'true' : 'false'}</p>
+                </div>
+            );
+        }
+
+
+        function WarningBanner(props) {
+            if (!props.warn) {
+                return null;
+            }
+
+            return (
+                <div className="warning">
+                    Warning!
+                </div>
+            );
+        }
+
+        class Page extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = {showWarning: true};
+                this.handleToggleClick = this.handleToggleClick.bind(this);
+            }
+
+            handleToggleClick() {
+                this.setState(pState => ({
+                    showWarning: !pState.showWarning
+                }));
+            }
+
+            render() {
+                return (
+                    <div>
+                        <WarningBanner warn={this.state.showWarning}/>
+                        <button onClick={this.handleToggleClick}>
+                            {this.state.showWarning ? 'Hide' : 'Show'}
+                        </button>
+                    </div>
+                );
+            }
+        }
+
+        const messages = ['React', 'Re: React', 'Re:Re: React'];
+        ReactDOM.render(
+            <Page />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>

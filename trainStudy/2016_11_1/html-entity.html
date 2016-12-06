@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>html entity</title>
+</head>
+<body>
+	<ul>
+		<li>空格: &nbsp; nbsp</li>
+		<li>小于号：&lt;</li>
+		<li>大于号：&gt;</li>
+		<li>and符号：&amp;</li>
+		<li>引号：&quot;</li>
+		<li>分：&cent;</li>
+		<li>镑：&pound;</li>
+		<li>人民币：&yen;</li>
+		<li>欧元：&euro;</li>
+		<li>小节：&sect;</li>
+		<li>版权：&copy;</li>
+		<li>注册商标：&reg;</li>
+		<li>商标：&trade;</li>
+		<li>乘号：&times;</li>
+		<li>除号：&divide;</li>
+	</ul>
+
+	<script type="text/javascript">
+		// const PI; 声明必须要定义  不能改变值
+		const PI = 3.14,
+			arr = [];
+		let t = 0;
+
+		// PI = 3.14159; 报错 不能更改值
+
+		arr.push(123);	//引用地址不能更改
+
+		/**
+		* @func bar
+		* @desc 指定默认值
+		*/
+		function bar(x = 1, y = 2) {
+			// let x = 2; 报错 不能重复声明变量
+			return x + y;
+		}
+
+		console.log(bar(), arr, this.t); // let const class声明的不再属于顶层变量
+
+		let [ one = 'default', , ...third] = [, 'b', 'c'], //解构赋值
+			{foo, barf : bara} = {foo : 'foo', barf : 'barf'}, // 真正被赋值的是bara
+			x;
+
+		({x} = {x : 1}); /* 赋值已声明的变量 */
+		let [...rest] = 'helloworld', /* 字符串转数组 */
+			{length: len} = 'hello'; /* 类数组赋值 */
+
+		/**
+		* @func move
+		* @desc 函数参数对象的解构
+		* @param {obj}
+		*/
+		function sum({x = 1, y = 2} = {}) {
+			return x + y;
+		}
+
+		/**
+		* @func sumAdd
+		* @desc 为函数sumAdd的参数指定默认值，而不是为变量x，y？
+		*/
+		function sumAdd({x, y} = {x : 5, y : 6}) {
+			return x + y;
+		}
+
+
+		console.log([[2, 3], [5, 6]].map(([a, b]) => a + b)); /* 解构函数的使用 */
+		// [x, y] = [y, x];  值的交换 
+
+		console.log(one, third, foo, bara, x, rest, len, sum(), sumAdd());
+
+		console.log(Math.trunc(5.5)); /* 去除小数部分 */
+		console.log(Math.sign(5)); /* 判断数字正负0 */
+		console.log(Math.cbrt(3.3)); /* 立方根 */
+		console.log(Math.hypot(3, 4)); /* 所有参数的平方和的平方根 */
+		console.log(2 ** 5); /* 指数运算符
+		 */
+	</script>
+</body>
+</html>

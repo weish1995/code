@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合</title>
+</head>
+<body>
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+        function FancyBorder(props) {
+            return (
+                <div className={'FancyBorder FancyBorder-' + props.color}></div>
+            );
+        }
+
+        function WelcomeDialog() {
+            return (
+                <FancyBorder color="blue">
+                    <h1 className="Dialog-title">
+                        Welcome
+                    </h1>
+                    <p className="Dialog-message">
+                        Thank you for visiting our spacecraft!
+                    </p>
+                </FancyBorder>
+            );
+        }
+    </script>
+</body>
+</html>

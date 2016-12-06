@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	padding: 20px;
+	width: 300px;
+	text-align: justify;
+	hyphens: auto; /* 不支持 */
+}
+
+.hyphens {
+	line-height: 1.5em;
+	background-image: linear-gradient(rgba(0, 0, 0, .1) 50%, transparent 0);
+	background-color: beige;
+	background-size: auto 3em;
+	background-origin: content-box;
+}
+
+dl dd, dl dt {
+	display: inline-block;
+}
+
+dl dt::before {
+	white-space: pre;
+	content: '\A'; /* 插入换行符 */
+}
+
+pre {
+	tab-size: 4;
+}
+
+.underline {
+	width: 500px;
+	line-height: 1.5em;
+	background-image: linear-gradient(90deg, #ccc 50%, transparent 0);
+	background-size: 1em 1px;
+	background-repeat: repeat-x;
+	background-position: 0 3em;
+}
+
+.light {
+	font-family: 'Microsoft Yahei';
+	font-size: 35px;
+	font-weight: 700;
+
+	color: #ffc;
+	background-color: #203;
+	transition: all 1s ease;
+}
+
+.light:hover {
+	color: transparent;
+	text-shadow: 0 0 .1em, 0 0 .3em;
+}
+
+input[type='checkbox'] {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+input[type='checkbox'] + label:before {
+	display: inline-block;
+	margin-right: .2em;
+	border-radius: .2em;
+	width: .8em;
+	height: .8em;
+	font-weight: 700;
+	line-height: .6;
+	text-indent: .15em;
+	vertical-align: .2em;
+	background-color: yellowgreen;
+	content: '\a0';
+	cursor: pointer;
+}
+
+input[type='checkbox']:checked + label:before {
+	content: '\2713';
+}
+
+.turn {
+	display: inline-block;
+	padding: 10px 15px;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 700;
+	background: linear-gradient(#ddd, #bbb);
+	box-shadow: 0 1px #fff inset;
+	text-shadow: 0 1px 1px #fff;
+	cursor: pointer;
+
+/*	overflow: hidden;
+	resize: both;*/
+}
+
+.turn-in {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .6) inset;
+	border-color: rgba(0, 0, 0, .3);
+	background: #bbb;
+}
+
+figure {
+	margin: auto;
+	width: min-content;
+	max-width: 300px;
+}
+
+/*table {
+	table-layout: fixed; 自主设定宽度
+*/}
+
+/* 不生效 */
+ul li:nth-of-type(1):nth-of-last-type(1) {
+	display: none;
+}
+
+.wrap {
+	width: auto;
+	max-width: 600px;
+	padding: 0 calc(50% - 300px);
+	color: #fff;
+	background-color: #abc;
+}
+
+.vert-wrap {
+	height: 100px;
+	margin-top: 10px;
+	background-color: #abc;
+}
+
+.vert-wrap .vert {
+	padding: 0;
+}

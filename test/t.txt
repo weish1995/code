@@ -1,0 +1,6 @@
+this is my t.
+new branch test
+<<<<<<< HEAD
+Creating a new branch is quick and simple
+this is my branch
+this is bug

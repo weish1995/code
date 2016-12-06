@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+	/**
+	* @func createPerson
+	* @desc 工厂模式 寄生构造函数模式 -- 区别：是否使用new创建对象
+	*/
+	function createPerson(name, age) {
+		var o = new Object();
+		o.name = name;
+		o.age = age;
+		o.sayName = function() {
+			console.log(this.name);
+		};
+
+		return o;
+	}
+
+	/**
+	* @func PersonSpecial
+	* @desc 构造函数模式实例(尽量不使用)--创建一个具有额外方法的特殊数组
+	*/
+	function PersonSpecial() {
+		//创建数组
+		var values = new Array();
+
+		//将传入值赋值给values
+		values.push.apply(values, arguments);
+
+		//添加方法
+		this.toPipedString = function() {
+			return values.join('|');
+		};
+	}
+
+	/**
+	* @func PersonSafe
+	* @desc 稳妥构造函数模式(没有公共属性) -- 和寄生构造函数模式区别：不使用this，不使用new
+	*/
+	function PersonSafe(name, age) {
+		var o = new Object();
+
+		// 外部只能通过方法访问其中的值
+		o.sayName = function() {
+			console.log(name);
+		};
+	}
+
+	var colors = new PersonSpecial('red', 'green', 'blue');
+	console.log(colors.toPipedString());
+
+	/**
+	* @func Person
+	* @desc 构造函数模式
+	*/
+	function Person(name, age) {
+		this.name = name;
+		this.age = age;
+		this.sayName = function() {
+			console.log(this.name);
+		};
+	}
+
+	/**
+	* @func PersonProto
+	* @desc 原型链模式
+	*/
+	function PersonProto() {}
+
+	PersonProto.prototype = {
+		name : 'weish',
+		age : 21,
+		sayName : function() {
+			console.log(this.name);
+		}
+	};
+
+	/**
+	* @func PersonPerfect
+	* @desc 动态原型模式 非常完美
+	*/
+	function PersonPerfect(name, age) {
+		this.name = name;
+		this.age = age;
+
+		/* 只用检测一个就可以 */
+		if (typeof this.sayName != 'function') {
+			PersonPerfect.prototype.sayName = function() {
+				console.log(this.name);
+			}
+		}
+	}
+
+	/**
+	* @func People
+	* @desc 混合模式
+	*/
+	function People(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	People.prototype.sayName = function() {
+		console.log(this.name);
+	};
+
+	/**
+	* @func SubPeople
+	* @desc 组合继承
+	*/
+	function SubPeople(name, age, job) {
+		People.call(this, name, age);
+		this.job = job;
+	}
+
+	SubPeople.prototype = new People();
+	SubPeople.prototype.constructor = SubPeople;
+	SubPeople.prototype.sayAge = function() {
+		console.log(this.age);
+	};
+
+	/* 实例化 */
+	var sub = new SubPeople('weish', 21, 'Student');
+	sub.sayName();
+	sub.sayAge();
+
+	/**
+	* @func hasPrototypeProperty
+	* @desc 检测属性存在于实例中还是原型中
+	* @param {String} object 实例
+	* @param {String} name 属性名
+	*/
+	function hasPrototypeProperty(object, name) {
+		return !object.hasOwnProperty(name) && (name in object);
+	}
+
+	var people = new People('weish', '21');
+	people.job = 'job';
+	console.log(hasPrototypeProperty(people, 'sayName'), hasPrototypeProperty(people, 'job'), Object.keys(people));
+
+
+	</script>
+</body>
+</html>

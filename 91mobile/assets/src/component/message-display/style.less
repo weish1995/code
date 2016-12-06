@@ -1,0 +1,107 @@
+@import '../../page/variables.less';
+
+//留言内容展示板块 
+.@{prefix-cls}-message-display{
+
+    //细边框线条
+    .thinBorder() {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: auto;
+        right: auto;
+        height: 3px;
+        width: 100%;
+        background-color: @borColor;
+        display: block;
+        z-index: 15;
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        -webkit-transform: scaleY(.9);
+        transform: scaleY(.9);
+    }
+
+    position: relative;
+    padding-top: 23px;
+    padding-bottom: 20px;
+
+     &:after {
+        .thinBorder;
+        bottom: 0;
+        top: auto;
+    }
+
+
+      //顾客头像 
+    img {
+        display: inline-block;
+        float: left;
+        padding: 0;
+        width: 190px;
+        height: 190px;
+    }
+
+      //留言内容 
+    .item-inner {
+        padding-left: 75px;
+        margin-left: 190px;
+
+        p{
+            margin: 0;
+        }
+
+          &:after {
+            height: 0;
+        }
+    }
+
+      .item-message {
+        height: auto;
+        font-size: @messageFontSize;
+        line-height: 1.2;
+        padding: 10px 0;
+    }
+
+      //留言时间 
+    .item-after {
+        margin-right: 40px;
+    }
+      
+    time {
+        font-size: @messageFontSize;
+        color: #7c7c7c;
+        font-weight: 200;
+    }
+
+    .item-title-row{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        line-height: 100%;
+    }
+
+      //时间logo 
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        background-image: url("online-message-time.png");
+        background-size: cover;
+        margin: auto 10px;
+        display: inline-block;
+    }
+
+      //留言者姓名 
+    .item-title {
+        color: #7c7c7c;
+        font-size: @messageFontSize;
+        font-weight: 100;
+    }
+      .writer {
+        color: #3f4249;
+    }
+}
+

@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.test {
+  width: 200px;
+  height: 200px;
+  border: 2px #f00 solid;
+}

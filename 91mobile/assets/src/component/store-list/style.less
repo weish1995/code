@@ -1,0 +1,179 @@
+@import '../../page/variables.less';
+
+//商店列表
+.media-list.@{prefix-cls}-store-list {
+
+    //细边框线条
+    .thinBorder() {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        right: auto;
+        height: 5px;
+        width: 100%;
+        background-color: #efefef;
+        display: block;
+        z-index: 2;
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+    }
+
+    margin: 0;
+    padding: 16px @pageSpacing 0 @pageSpacing;
+    border-top: @pageSpacing solid #f7f8fa;
+    background-color: #fff;
+    font-weight: 300;
+
+    .item-content {
+        position: relative;
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 37px;
+
+        &:after {
+            .thinBorder();
+        }
+    }
+
+    //商店头像
+    .item-media {
+        width: 258px;
+        height: 236px;
+        padding: 0;
+        background-size: cover;
+    }
+
+    //店家信息介绍
+    .item-inner {
+        padding: 0;
+        margin: 0 276px 0 23px;
+        text-align: left;
+
+        p {
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 300;
+        }
+
+        &:after {
+            height: 0;
+        }
+    }
+
+    //商店名字
+    .item-title {
+        width: 100%;
+        font-size: 44px;
+        overflow: inherit;
+    }
+
+    //加盟钱
+    .item-money{
+        width: 100%;
+        text-align: left;
+    }
+
+    .money {
+        font-size: 44px;
+        margin-left: 12px;
+    }
+
+    //所属行业 门店数量
+    .item-subtitle {
+        font-size: 44px;
+        color: #7c7c7c;
+    }
+
+    //两个按钮 在线咨询 加盟政策
+    .list-two-button{
+        position: absolute;
+        top: 9px;
+        right: 0;
+        width: 260px;
+    }
+
+    .logo-icon-money {
+        display: inline-block;
+        width: 43px;
+        height: 43px;
+        vertical-align: middle;
+        background-image: url(./yuan.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .button {
+        height: 100px;
+        line-height: 100px;
+        font-size: 44px;
+        color: #e47575;
+        border-color: #e47575;
+        border-radius: 9px;
+        margin:0 0 30px 0;
+    }
+
+    //加盟数量  电话
+    .item-footer{
+        width: 100%;
+        height: 151px;
+        line-height: 161px;
+        font-size: 44px;
+
+        div{
+            display: inline-block;
+            width: 50%;
+        }
+
+        .join {
+            width: 45%;
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 330px) {
+        .item-footer {
+            font-size: 34px;
+        }
+    }
+
+    //电话
+    .item-phone {
+        position: relative;
+        height: 100%;
+
+        &:before{
+            .thinBorder();
+            top: (154px-42px)/2;
+            bottom: auto;
+            height: 42px;
+            width: 6px;
+            -webkit-transform: scaleX(.5);
+            transform: scaleX(.5);
+        }
+    }
+
+    .logo-icon-phone{
+        position: absolute;
+        top: 50%;
+        left: 60px;
+        margin-top: -32.5px;
+        display: inline-block;
+        width: 66px;
+        height: 66px;
+        background-image: url(./phone.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .phone{
+        margin-left: 145px;
+        white-space: nowrap;
+        color: #51a300;
+    }
+}

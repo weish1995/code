@@ -1,0 +1,8 @@
+width: percentage(.5); /* 装化为50% */
+color: saturate(#123456, 5%); /* 将饱和度增加5% */
+backgorund-color: spin(lighten(#132456, 25%), 8); /* 将颜色亮度降低25% 色相增加8 */
+
+变量可用于属性，属性名，选择器，url等；类似于字符串
+@@获取 变量定义的变量
+& 当前
+#bundle > .button 引入.button的所有样式

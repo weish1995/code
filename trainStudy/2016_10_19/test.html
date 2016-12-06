@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [5, 8, 9, 1, 2];
+
+			/**
+			* @func
+			* @desc 默认参数的函数
+			*/
+			function mult(a, b = 1) {
+				return a * b;
+			}
+
+			/**
+			* 箭头函数  -- 未推广
+			*/
+			arr.sort((a, b) => a > b ? true : false);
+
+			/**
+			* 解构赋值  -- 未推广
+			*/
+			var [a, b] = [1, 2];
+			[a, b] = [b, a]; /* 值的交换 */
+
+			/* map object */
+			var myMap = new Map();
+			myMap.set(0, '132');
+			myMap.set('w', 52);
+			console.log(myMap.size);
+
+			var obj = {};
+			obj.a = 1;
+			obj.b = 2;
+			console.log(obj.length); /* undefined */
+		</script>
+	</body>
+</html>>

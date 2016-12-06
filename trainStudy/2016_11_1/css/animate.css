@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.ball {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	background-color: #f00;
+
+	transform: translateY(200px);
+	animation: ball-run 2s cubic-bezier(.1, .25, 1, .25);
+}
+
+@keyframes ball-run {
+	0% {
+		transform: translateY(0);
+	}
+	60%, 80% {
+		transform: translateY(200px);
+		animation-timing-function: ease;
+	}
+	70% {
+		transform: translateY(140px);
+	}
+	90% {
+		transform: translateY(160px);
+	}
+}
+
+.flicker {
+	margin-left: 500px;
+	width: 100px;
+	height: 50px;
+	font-family: 'Microsoft Yahei';
+	font-size: 16px;
+	color: #000;
+	background-color: #ccc;
+
+	animation: 1s blink 3 steps(1);
+}
+
+@keyframes blink {
+	50% {
+		color: transparent;
+	}
+}
+
+.bg {
+	margin-top: 200px;
+	padding: 10px 0;
+	background-color: #000;
+}
+
+.typing {
+	border-right: 1px solid #fff;
+	width: 26ch;
+	overflow: hidden;
+	font: bold 200% Consolas, Monaco, monospace;
+	white-space: nowrap;
+	color: #00bf00;
+
+	animation: typing 6s steps(26),
+			cursor 1s steps(1) infinite;
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+}
+
+@keyframes cursor {
+	50% {
+		border-right-color: transparent;
+	}
+}
+
+.img-show {
+	width: 300px;
+	height: 300px;
+	background-image: url(../show.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	animation: imgShow 6s linear infinite alternate;
+	animation-play-state: paused;
+	cursor: pointer;
+}
+
+.img-show:hover {
+	animation-play-state: running;
+}
+
+@keyframes imgShow {
+	100% {
+		background-position: 100% 0;
+	}
+}
+
+.cricle {
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	background-color: #ff0;
+}
+
+.cricle .avatar {
+	margin-left: calc(50% - 25px);
+	width: 50px;
+	height: 50px;
+
+	animation: spin 5s infinite linear;
+	/*transform-origin: 50% 150px;*/
+}
+
+.cricle .avatar img {
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+
+/*	animation: inherit;
+	animation-direction: reverse;*/
+}
+
+/*@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.cricle:hover img, 
+.cricle:hover .avatar{
+	animation-play-state: paused;
+}
+*/
+@keyframes spin {
+	from {
+		transform: translateY(150px) translateY(-50%)
+				   rotate(0turn)
+				   translateY(-150px) translateY(50%)
+				   rotate(1turn);
+	}
+	to {
+		transform: translateY(150px) translateY(-50%)
+		           rotate(1turn)
+				   translateY(-150px) translateY(50%)
+				   rotate(0turn);
+	}
+}

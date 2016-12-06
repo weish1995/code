@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表和键</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+        const numbers = ['a', 'b', 'c', 'd', 'e'];
+        const listItems = numbers.map((item) =>
+            <li>{item}</li>
+        );
+
+        function NumberList(props) {
+            const numbers = props.numbers;
+            const listItems = numbers.map((item) =>
+                <li key={item.toString()}>{item}</li>
+            );
+
+            return (
+                <ul>{listItems}</ul>
+            );
+        }
+
+        ReactDOM.render(
+            <NumberList numbers={[11, 22, 33, 44]}/>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form 表单</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+        class NameForm extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    value : '',
+                    text : 'Please write an essay about your favorite DOM element.',
+                    select : 'math'
+                };
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+                this.handleTextCh = this.handleTextCh.bind(this);
+                this.handleSelectCh = this.handleSelectCh.bind(this);
+            }
+
+            handleChange(event) {
+                this.setState({value: event.target.value});
+            }
+
+            handleSubmit(event) {
+                event.preventDefault();
+                alert(this.state.value + '\n' + this.state.text + '\n' + this.state.select);
+            }
+
+            handleTextCh(event) {
+                this.setState({text : event.target.value});
+            }
+
+            handleSelectCh(event) {
+                this.setState({select : event.target.value});
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Name:
+                            <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        </label>
+                        <label>
+                            Text:
+                            <textarea value={this.state.text} onChange={this.handleTextCh} />
+                        </label>
+                        <label>
+                            Select:
+                            <select value={this.state.select} onChange={this.handleSelectCh}>
+                                <option value="math">math</option>
+                                <option value="computer">computer</option>
+                                <option value="PE">PE</option>
+                                <option value="English">English</option>
+                            </select>
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <NameForm/>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>

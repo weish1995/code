@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>高级技巧</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		* @func Person
+		* @desc Person构造函数 确定this的指向
+		*/
+		function Person(name, age, job) {
+			if (this instanceof Person) {
+				this.name = name;
+				this.age = age;
+				this.job = job;
+			} else {
+				return new Person(name, age, job);
+			}
+		}
+
+		
+	</script>
+</body>
+</html>

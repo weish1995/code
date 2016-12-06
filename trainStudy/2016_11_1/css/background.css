@@ -1,0 +1,109 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.current-color {
+	margin: 30px auto 0;
+	border: 5px dashed #ff0;
+	width: 500px;
+	color: #f00;
+	background-color: #666;
+	background-clip: padding-box; /* 背景图的裁剪 */
+	box-shadow: 0 0 0 10px #655,
+				0 0 0 20px #0ff;
+
+}
+
+.bg-test {
+	margin: 10px auto 0;
+	padding: 10px;
+	width: 200px;
+	height: 200px;
+	background: url('bg.png') no-repeat bottom right #58a;
+	background-position: right calc(100% - 20px) bottom 10px;
+	background-origin: content-box;
+	background-size: 50%;
+}
+
+.bg-test b {
+	display: inline-block;
+	width: calc(100% - 30px); 
+	margin-top: calc(100% - 20px); /* 计算函数 */
+}
+
+hr {
+	height: .5em;
+	background: currentColor; /* 默认值 */
+}
+
+/* outline + box-shadow 实现 内部圆角 外部直线 */
+.radius-shadow {
+	margin: 10px auto 0;
+	border-radius: 10px;
+	width: 100px;
+	height: 50px;
+	background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, #f00 0); /* 线性渐变 */
+	background-size: 100% 20px; /* 条纹状 */
+	outline: .6em solid #655;
+	box-shadow: 0 0 0 .5em #655;
+}
+
+.gradient {
+	margin: 10px auto 0;
+	width: 200px;
+	height: 100px;
+
+	background: linear-gradient(to right, #fb3 33.3%, #58a 0, #58a 66.6%, #f00 0); /* 水平方向的渐变色 */
+	background-size: 30px 100%;
+}
+
+.gradient-scale {
+	margin: 10px auto 0;
+	width: 200px;
+	height: 100px;
+
+	background: linear-gradient(45deg, #fb3 50%, #58a 0, #58a 66.6%);
+	background-size: 20px 20px;
+}
+
+.gradient-skew {
+	margin: 10px auto 0;
+	width: 200px;
+	height: 100px;
+
+	background: linear-gradient(45deg, #fb3 25%, #58a 25%, #58a 50%, #fb3 50%, #fb3 75%, #58a 75%, #58a);
+	background-size: 50px 50px;
+}
+
+.gradient-repeat {
+	margin: 10px auto 0;
+	width: 200px;
+	height: 100px;
+
+	background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 15px,#58a 30px);
+}
+
+/* 同色系渐变色 */
+.gradient-same {
+	margin: 10px auto 0;
+	width: 200px;
+	height: 100px;
+
+	background: repeating-linear-gradient(30deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 20px, transparent 20px, transparent 40px);
+	background-color: #79b;
+}
+
+/* 边框背景 */
+.bg-clip {
+	margin: 10px auto 0;
+	padding: 20px;
+	width: 200px;
+	height: 100px;
+
+	background: linear-gradient(#fff, #fff),
+				url(../bg.png);
+	background-size: cover;
+	background-origin: border-box;
+	background-clip: content-box, padding-box;
+}

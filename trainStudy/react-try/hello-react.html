@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello react</title>
+</head>
+<body>
+    <div id="hello"></div>
+
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+//        ReactDOM.render(
+//            <h1>hello react</h1>,
+//            document.getElementById('hello')
+//        );
+
+        function formatName(user) {
+            return user.name + ' is ' + user.age;
+        }
+
+        const user = {
+            name: 'weish',
+            age: 21
+        };
+
+        const  element = (
+            <h1>
+                hello everyone, { formatName(user) }
+            </h1>
+        );
+
+        ReactDOM.render(
+            element,
+            document.getElementById('hello')
+        );
+
+    </script>
+</body>
+</html>

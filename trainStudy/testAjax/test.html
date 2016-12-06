@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var xhr = new XMLHttpRequest();
+
+		// xhr.onreadystatechange = function() {
+		// 	if (xhr.readyState == 4) {
+		// 		if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+		// 			document.write(xhr.responseText);
+		// 		}
+		// 	}
+		// };
+
+		// xhr.open('get', 'test.php', true);
+		// xhr.send(null);
+
+		function callback(data) {
+			console.log(data);
+		}
+
+		var script = document.createElement('script');
+		script.src = 'test.php?callback=callback';
+		script.type = 'text/javascript';
+		document.body.appendChild(script);
+	</script>
+</body>
+</html>

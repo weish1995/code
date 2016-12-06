@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@width: 200px;
+@height: 200px;
+
+.border-t(@border-color:#000, @border-width:1px, @border-style:solid) {
+	border: @border-width @border-color @border-style;
+}
+
+.test {
+	width: @width;
+	height: @height;
+	.border-t(#f00, 2px);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+<body>
+	<div class="table">
+		<div class="table-row">
+			<div class="table-cell">a</div>
+			<div class="table-cell">b</div>
+			<div class="table-cell">c</div>
+		</div>
+		<div class="table-row">
+			<div class="table-cell">a</div>
+			<div class="table-cell">b</div>
+			<div class="table-cell">c</div>
+		</div>
+		<ul>
+			<li>(2).toString() === 2 + ''</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		/* 标签模板 */
+		var total = 30;
+		var msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+		function passthru(literals) {
+		  var result = '';
+		  var i = 0;
+
+		  while (i < literals.length) {
+		    result += literals[i++];
+		    if (i < arguments.length) {
+		      result += arguments[i];
+		    }
+		  }
+
+		  return result;
+		}
+
+		msg // "The total is 30 (31.5 with tax)"
+
+		var a = 'wei shuang '.split(' ');
+	</script>
+</body>
+</html>

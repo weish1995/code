@@ -1,0 +1,8 @@
+.idea/
+npm-debug.log
+dist
+.project
+rev-manifest.json
+.DS_Store
+node_modules
+/*.html

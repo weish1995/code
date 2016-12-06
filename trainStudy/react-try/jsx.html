@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx</title>
+</head>
+<body>
+    <div id="time"></div>
+
+    <script src="scripts/react.js" type="text/javascript"></script>
+    <script src="scripts/react-dom.js" type="text/javascript"></script>
+    <script src="scripts/browser.min.js"></script>
+    <script type="text/babel">
+        function tick() {
+            const element = (
+                    <p>
+                        time is {new Date().toLocaleTimeString()}
+                    </p>
+            );
+
+            ReactDOM.render(
+                    element,
+                    document.getElementById('time')
+            );
+        }
+
+        setInterval(tick, 1000);
+    </script>
+</body>
+</html>

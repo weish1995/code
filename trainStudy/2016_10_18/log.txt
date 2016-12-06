@@ -1,0 +1,41 @@
+git
+
+	/* 本地操作 */
+	git init
+	git status
+	git diff
+	git log
+	git reflog
+	git add        git rm
+	git commit
+	git reset -- hard file
+	git checkout -- file
+
+	/* 远程仓库 */
+	git remote add orign git@git.chongkouwei.com:weish/test
+	git push -u origin master
+	git push origin master
+	git clone url
+
+	/* 分支管理 */
+	git branch
+	git checkout -b dev == git branch dev     git checkout dev
+	git merge <name> 合并到当前分支    git merge -no-ff -m ''
+	git branch -d/-D dev
+
+	/* 修复bug时 */
+	git stash
+	git stash apply    git stash drop
+	git stash pop
+	git stash list
+
+	/* 多人合作 */
+	get remote -v查看远程库信息
+	git pull
+	git branch --set-upstream dev origin/dev
+
+	/* 打标签 */
+	git tag v0.9
+	git tag -a v0.9 -m 'content' e29a29('commit id')
+	git show v0.9 显示
+	

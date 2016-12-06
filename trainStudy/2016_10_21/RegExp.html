@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var test = 'abcacab';
+		console.log(/(ab*c){1}/.test(test));
+
+		/**
+		* \ 转义字符
+		* ^a 以a开头
+		* a$ 以a结尾
+		* * {0,}
+		* + {1,}
+		* ? {0,1}
+		* . 除了\n的任意字符
+		* (a) 匹配并记住a，捕获括号
+		* (?:a) 匹配但不记住a，非捕获括号
+		* x(?=y) 匹配x当x后面是y时
+		* x(?!y) 匹配x当x后面不是y时
+		* x|y 匹配x或者y
+		* {n} n次
+		* {n,m} n-m次
+		* [a-z] a-z之间的任意字符
+		* [^a-z] a-z之外的任意字符
+		* [\b] 匹配一个退格
+		* \b 匹配一个单词边界
+		* \B 匹配一个非单词边界
+		* \d 匹配数字
+		* \D 非数字
+		* \s 空白字符
+		* \S 非空白字符
+		* \w 一个单字字符 [a-zA-Z0-9_]
+		* \W 非单字字符 [^a-zA-Z0-9_]
+		* \f 换页符 \n 换行符 \r 回车符 \t 水平制表位 \v 垂直制表位 
+		* \1 ?
+		* \0 NULL
+		* \xhh 带有两位小数的字符
+		* \xhhhh 带有四位小数的字符
+		* g 全局搜索
+		* i 不区分大小写
+		* m 多行搜索
+		*/
+
+		console.log(/abc(?!cd)/.test('abccdce'));
+		console.log(/\babc/.test('qw abcde'));
+
+		/* 示例 */
+		var strExp = /(\w+\s)(\w+\s)(\w+\s)(\w+\s)/;
+		console.log('my name is weishuangjian '.replace(strExp, '$3 $2 $1 $4'));
+
+		var teleExp = /^(\+86)?1\d{10}$/;
+		console.log((teleExp).test('15310274364'));
+
+		var emailExp = /^\w+@\w+(\.com|\.cn|\.net)$/;
+		console.log(emailExp.test('w@qq.com'));
+	</script>
+</body>
+</html>

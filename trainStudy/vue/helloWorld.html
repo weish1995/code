@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>hello world</title>
+	<style type="text/css">
+		.pclass {
+			height: 50px;
+			background-color: #E0EEEE;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>{{ reversedMessage }}</p>
+		<p class="pclass" v-bind:title="message">{{ 'my first vue: ' + message }}</p> <!-- 指令 特殊属性 -->
+		<input type="text" v-model="message">
+		<input type="button" value="reverse" v-on:click="reverseMessage">
+
+		<ul>
+			<li v-for="todo in todos"> <!-- for循环 -->
+				{{ todo.text }}
+			</li>
+		</ul>
+
+		<!-- if 语句 -->
+		<p v-if="seen">
+			Now you see me.
+		</p>
+
+		<template v-if="seen">
+			<h1>Title</h1>
+			<p>Paragraph 1</p>
+			<p>Paragraph 2</p>
+		</template>
+	</div>
+
+	<div id='app2'>
+		<ol>
+			<!-- 使用自定义组件 -->
+			<todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>			
+		</ol>
+		<p>
+			{{ fullName }}
+		</p>
+	</div>
+
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				message : 'Hello Vue, ' + new Date().toDateString(),
+				todos : [
+					{ text : 'javascript' },
+					{ text : 'html' },
+					{ text : 'css' }
+				],
+				seen : true
+			},
+			/* 有缓存 */
+			computed : {
+				reversedMessage : function() {
+					return this.message.split('').join(' ');
+				}
+			},
+			/* 没有缓存 */
+			methods : {
+				reverseMessage : function() {
+					this.message = this.message.split('').reverse().join('');
+				}
+			}
+		});
+
+		/* 自定义组件 */
+		Vue.component('todo-item', {
+			props : ['todo'],
+			template : '<li>{{ todo.text }}</li>'
+		});
+
+		var data = {a : 1};
+		var app2 = new Vue({
+			el : '#app2',
+			data : {
+				todos : [
+					{ text : 'Math' },
+					{ text : 'Computer' },
+					{ text : 'PE' }
+				],
+				name : 'weish'
+			},
+			computed : {
+				/* 自定义getter、setter */
+				fullName : {
+					get : function(){
+						return this.name;
+					},
+					set : function(val) {
+						return 'hello ' + val;
+					}
+				}
+			}
+		});
+
+		// app2.todos 代理data里面的内容
+		// app2.$data 调用实例里面的属性或方法 不要使用 => 
+		app2.$data === data;
+		app2.$el === document.getElementById('app2');
+		
+		/* 实例方法 在vm.a改变后调用 */
+		app2.$watch('a', function(newVal, oldVal) {
+			console.log(newVal);
+		});
+		/* 缩写 v-bind: -> :   v-on: -> @ */
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+@import '../variables.less';
+
+.@{prefix-cls}-message-content {
+
+    //细边框线条
+    .thinBorder() {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: auto;
+        right: auto;
+        height: 3px;
+        width: 100%;
+        background-color: @borColor;
+        display: block;
+        z-index: 15;
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        -webkit-transform: scaleY(.9);
+        transform: scaleY(.9);
+    }
+
+    //在线留言部分左边边距
+    @leftMargin: @pageSpacing;
+
+
+    background-color: #fff;
+
+    //在线留言标题
+      .list-head {
+        position: relative;
+        height: 153px;
+        line-height: 153px;
+        background-color: #f7f8fa;
+        padding:0 @leftMargin;
+
+          &:before,
+        &:after {
+            .thinBorder;
+        }
+
+        &:after{
+           top: auto;
+            bottom: 0;
+        }
+
+          //在线留言图标 
+        .logo-icon {
+            display: inline-block;
+            width: 47px;
+            height: 47px;
+            //margin: 0 8px 0 30px;
+            margin-right: 8px;
+            background-image: url(online-message-logo.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+          //在线留言标题 
+        span {
+            font-size: @titleFontSize;
+            color: #3f4249;
+            padding: 0;
+        }
+    }
+
+    //留言内容展示板块 
+    .media-message{
+        margin: 27px @leftMargin 0;
+    }
+
+      //在线留言表单 
+    .online-message {
+        padding: 0 @leftMargin;
+        margin: 0;
+         //在线留言表单标题 
+        h2 {
+            padding: 75px 0;
+            margin: 0;
+            font-size: @titleFontSize;
+            text-align: center;
+            color: #ea3b40;
+            background-color: #fff;
+        }
+
+          //表单 
+        ul:before,  
+        ul:after,  
+        .item-inner:after {
+            height: 0;
+        }
+
+          .item-inner {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+          li {
+            height: 155px;
+            margin: 0 0 36px;
+            border: 1px solid @borColor;
+            border-radius: 15px;
+        }
+
+          .item-content {
+            height: 100%;
+            padding-left: 88px;
+        }
+
+          //label 
+        .item-title.label {
+            width: auto;
+            font-size: @titleFontSize;
+            margin: 0;
+        }
+          .item-input {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: @titleFontSize;
+        }
+          
+        //多行文本框 
+        .align-top {
+            height: 260px;
+            background-color: #f7f8fa;
+
+              .item-inner {
+                padding-top: 10px;
+                height: 100%;
+            }
+        }
+
+          textarea {
+            height: 260px;
+            padding: 0;
+        }
+          
+        .message-txtarea {
+            height: auto;
+            line-height: 1;
+
+            textarea {
+                margin: 0;
+                padding: 0 0 0 69px;
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 39px;
+                line-height: 150px;
+                resize: none;
+            }
+
+            .tips {
+                padding: 0 @pageSpacing;
+                display: none;
+                width: 100%;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    height: 120px;
+                    font-size: 39px;
+                    line-height: 120px;
+                    border-bottom: 3px solid rgb(212, 212, 212);
+                }
+
+                p:last-child {
+                    border: none;
+                }
+            }
+        }
+
+        .message-txtarea-blur {
+            border-bottom: 3px solid rgb(212, 212, 212) !important;
+        }
+    }
+
+    //提交表单按钮
+      .submit-button {
+        margin: 0;
+        padding: 0 0 90px;
+        background-color: #fff;
+
+        a {
+            font-size: @titleFontSize;
+            height: 155px;
+            line-height: 155px;
+            color: #fff;
+            background-color: #ea3b40;
+            border-radius: 0;
+        }
+    }
+      
+    //免费留言板块 
+    .free-message {
+        height: 150px;
+        background-color: #efefef;
+        padding: 0;
+
+          //免费留言标题 
+        span {
+            float: left;
+            width: 270px;
+            font-size: @titleFontSize;
+            line-height: 150px;
+            text-align: center;
+            margin: 0;
+        }
+          
+        //免费通话 
+        .button {
+            float: right;
+            width: 270px;
+            height: 100%;
+            font-size: 54px;
+            color: #fff;
+            top: 0;
+            margin: 0;
+            background-color: #ea3b40;
+            border: 0;
+            border-radius: 0;
+        }
+          
+        //输入手机号码 
+        div {
+            position: relative;
+            height: 100%;
+            margin: 0 290px 0 310px;
+
+              &:before {
+                .thinBorder;
+
+                top: (150px-65px)/2;
+                height: 65px;
+                width: 3px;
+                background-color: #d4d4d4;
+            }
+        }
+
+          input {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            line-height: 150px;
+            padding-left: 60px;
+            background-color: #efefef;
+            border: 0;
+        }
+    }
+}

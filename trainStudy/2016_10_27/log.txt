@@ -1,0 +1,12 @@
+gulp
+  API
+	gulp.src(globs[,options]) /* 源文件 */
+
+	gulp.dest(path[,options]) /* 目标路径 能被pipe进来 */
+
+	gulp.task(name, [option], fn) /* 创建任务 */
+
+	gulp.watch(glob[,option], tasks) /* 监视时间 在文件发生改动的时候do sth */
+		ep: gulp.watch('js/**/*.js', function() {})
+
+	

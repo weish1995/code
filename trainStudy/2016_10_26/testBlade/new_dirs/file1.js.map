@@ -1,0 +1,1 @@
+{"version":3,"sources":["../dir/file1.js"],"names":["a","b"],"mappings":";;WAAY,CAAC,CAAD,EAAI,CAAJ,EAAO,CAAP,EAAU,CAAV,EAAa,CAAb,C;AAAXA,C;AAAMC,C","file":"file1.js","sourcesContent":["[a, ...b] = [1, 2, 3, 4, 5];"]}

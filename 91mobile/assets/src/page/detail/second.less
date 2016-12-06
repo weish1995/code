@@ -1,0 +1,100 @@
+@import '../variables';
+
+.@{prefix-cls}-detail-second {
+    & {
+        margin-top: 29px;
+        background-color: #ffffff;
+        border-top: 5px solid #d4d4d4;
+    }
+
+    .row-all {
+        padding:0 @pageSpacing;
+    }
+
+    .information-row {
+        & {
+            border-bottom: 5px solid #d4d4d4;
+            width:100%;
+            height: 153px;
+            line-height:153px;
+        }
+
+        .row-content-left {
+            float: left;
+            height:100%;
+            font-size: 45px;
+        }
+
+        .row-content-right {
+            float: left;
+            margin-left: 38px;
+            height:100%;
+            font-size: 45px;
+            text-align: left;
+            color: #3f4249;
+        }
+
+        a:active {
+            color: #ea3b40;
+        }
+    }
+
+    .last-row {
+        & {
+            position: relative;
+            width:100%;
+            height: 153px;
+            line-height:153px;
+        }
+
+        .row-logo {
+            display: inline-block;
+            position: absolute;
+            top: 43px;
+            bottom: 43px;
+            width: 65px;
+            height: 65px;
+            background-image: url(iconfont-dianhua.png);
+            background-size: cover;
+        }
+
+        .row-tel {
+            position: absolute;
+            left: 103px;
+            height: 100%;
+            font-size: 45px;
+            color: #54a505;
+        }
+
+        .row-people {
+            float: right;
+            top: 45px;
+            right: @pageSpacing;
+            font-size: 45px;
+        }
+
+        @media (max-width: 320px) {
+            .row-tel {
+                font-size: @pageSpacing;
+            }
+
+            .row-people {
+                 font-size: @pageSpacing;
+             }
+        }
+    }
+    .row-phone {
+        display: block;
+        width:100%;
+        margin-left:0;
+        height: 152px;
+        line-height:152px;
+        text-align: center;
+        color: #fff;
+        background-color: #ea3b40;
+    }
+
+    .row-phone:active {
+        opacity: 0.9;
+    }
+}
